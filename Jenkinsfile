@@ -22,6 +22,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                another()
                 echo "Testing.."
                 sh '''
                 cd myapp
