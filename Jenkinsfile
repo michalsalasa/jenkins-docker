@@ -1,5 +1,5 @@
-// @Library("shared-library") _
-library 'LibJenkins'
+@Library("LibJenkins") _
+// library 'LibJenkins'
 pipeline {
     agent { 
         node {
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                LibJenkins()
+                helloworld()
                 echo "Building another  one.."
                 sh '''
                 cd myapp
