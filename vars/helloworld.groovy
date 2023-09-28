@@ -1,7 +1,5 @@
-def call(String name = "Alice") {
+def call(String type,String level) {
     script {
-        sh """
-            echo Hi ${name}
-        """
+        sh "Type of pipeline: ${type}. Level of advance: ${level}."
     }
 }
