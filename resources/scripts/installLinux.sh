@@ -1,2 +1,2 @@
 #!/bin/bash
-echo This is installLinux.sh script with parameters: $dayOfWeek and $name.
+echo This is installLinux.sh script with parameters: $3 and $2.
