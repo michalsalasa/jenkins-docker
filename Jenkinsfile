@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                another()
+                installPythonApp()
                 echo "Testing.."
                 // sh '''
                 // cd myapp
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                echo 'Deliver....'
+                externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''
                 echo "doing delivery stuff.."
                 '''
