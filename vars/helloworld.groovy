@@ -1,3 +1,3 @@
 def call(Map config = [:]) {
-    sh "rodzaj of pipeline ${config.rodzaj}. Level of advance ${config.level}."
+    sh "rodzaj of pipeline ${config.rodzaj} a Level of advance ${config.level}."
 }
