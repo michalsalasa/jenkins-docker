@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                helloworld("Jenkins", "basic")
+                // helloworld("Jenkins", "basic")
                 echo "Building another  one.."
                 sh '''
                 cd myapp
