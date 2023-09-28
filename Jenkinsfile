@@ -24,11 +24,11 @@ pipeline {
             steps {
                 another()
                 echo "Testing.."
-                sh '''
-                cd myapp
-                python3 hello.py
-                python3 hello.py --name=Michal
-                '''
+                // sh '''
+                // cd myapp
+                // python3 hello.py
+                // python3 hello.py --name=Michal
+                // '''
             }
         }
         stage('Deliver') {

@@ -1,7 +1,9 @@
 def call(String firstname="Obama", String lastname="Barrack") {
     script {
         sh """
-            echo Hi Alice
+            cd myapp
+            python3 hello.py
+            python3 hello.py --name=Michal
         """
     }
     return "Yes Man"
