@@ -1,3 +1,3 @@
 def call(String typ , String level) {
-        sh "Type of pipeline: ${typ}. Level of advance: ${level}."
+        sh "Typ of pipeline: ${typ}. Level of advance: ${level}."
 }
