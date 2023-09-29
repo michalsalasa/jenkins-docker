@@ -31,6 +31,13 @@ pipeline {
                 // '''
             }
         }
+        stage('MVN') {
+            steps {
+                script {
+                    sh 'mvn clean package'
+                }
+            }
+        }
         stage('Deliver') {
             steps {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
