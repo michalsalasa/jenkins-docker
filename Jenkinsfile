@@ -41,7 +41,7 @@ pipeline {
                     cd CalculatorJavaMvn
                     pwd
                     ls
-                    mvn clean package
+
                     '''
             }
         }
