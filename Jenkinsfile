@@ -38,6 +38,9 @@ pipeline {
                     sh '''
                     pwd
                     ls
+                    cd CalculatorJavaMvn
+                    pwd
+                    ls
                     mvn clean package
                     '''
             }
