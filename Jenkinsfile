@@ -33,9 +33,9 @@ pipeline {
         }
         stage('MVN') {
             steps {
-                script {
-                    sh 'mvn clean package'
-                }
+                    sh '''
+                    mvn clean package
+                    '''
             }
         }
         stage('Deliver') {
