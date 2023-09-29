@@ -38,7 +38,7 @@ pipeline {
                     sh '''
                     pwd
                     ls
-                    cd CalculatorJavaMvn
+                    cd CalcJavaMvn
                     pwd
                     ls
 
