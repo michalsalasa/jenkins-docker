@@ -15,6 +15,8 @@ pipeline {
                 helloworld(rodzaj:"Jenkins",level:"basic")
                 echo "Building another  one.."
                 sh '''
+                pwd
+                ls
                 cd myapp
                 pip install -r requirements.txt
                 '''
@@ -34,6 +36,8 @@ pipeline {
         stage('MVN') {
             steps {
                     sh '''
+                    pwd
+                    ls
                     mvn clean package
                     '''
             }
