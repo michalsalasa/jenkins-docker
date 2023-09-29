@@ -41,7 +41,7 @@ pipeline {
                     cd CalcJavaMvn
                     pwd
                     ls
-
+                    mvn clean install
                     '''
             }
         }
