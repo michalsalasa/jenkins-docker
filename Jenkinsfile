@@ -51,11 +51,12 @@ pipeline {
                     cd CalcJavaMvn
                     pwd
                     ls
-                    env.MAVEN_HOME = '/usr/share/java/maven-3'
-                    env.PATH = "${env.MAVEN_HOME}/bin:${env.PATH}"
-                    /usr/share/java/maven-3/bin/mvn clean install
+                    MAVEN_HOME = '/usr/share/java/maven-3'
+                    PATH = "${MAVEN_HOME}/bin:${env.PATH}"
+                   
+                    mvn clean install
                     '''
-            }
+            } // /usr/share/java/maven-3/bin/mvn clean install
         }
         stage('Deliver') {
             steps {
