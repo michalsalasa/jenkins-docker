@@ -11,10 +11,10 @@ pipeline {
         M2_HOME = '/usr/share/java/maven-3'
         PATH = "${env.M2_HOME}/bin:${env.PATH}"
     }
-    // tools {
-    //     maven 'Maven 3.9.2'
-    //     jdk 'Java 13.0.12'
-    // }
+    tools {
+        maven 'Maven 3.9.2'
+        // jdk 'Java 13.0.12'
+    }
 
     // triggers {
     //     pollSCM '* 5 * * 1-5'
