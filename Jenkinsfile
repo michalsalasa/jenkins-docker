@@ -54,12 +54,4 @@ pipeline {
             }
         }
     }
-    post {
-        succes {
-            echo 'done'
-        }
-        fail {
-            echo 'error'
-        }
-    }
 }
