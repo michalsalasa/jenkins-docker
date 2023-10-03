@@ -51,7 +51,7 @@ pipeline {
                     cd CalcJavaMvn
                     pwd
                     ls
-                    mvn clean install
+                    /usr/share/java/maven-3/bin/mvn clean install
                     '''
             }
         }
