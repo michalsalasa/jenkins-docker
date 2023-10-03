@@ -6,6 +6,10 @@ pipeline {
             label 'docker-agent-python'
             }
       }
+    tools {
+        maven 'Maven 3.9.2'
+        jdk 'Java 13.0.12'
+    }
     // triggers {
     //     pollSCM '* 5 * * 1-5'
     // }
