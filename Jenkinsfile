@@ -51,6 +51,9 @@ pipeline {
                     cd CalcJavaMvn
                     pwd
                     ls
+                    def mavenHome = '/usr/share/java/maven-3'
+                    def mavenBinDir = "${mavenHome}/bin"
+                    env.PATH = "${mavenBinDir}:${env.PATH}"
                     /usr/share/java/maven-3/bin/mvn clean install
                     '''
             }
