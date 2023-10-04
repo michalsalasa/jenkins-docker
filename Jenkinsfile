@@ -52,7 +52,7 @@ pipeline {
                     cd CalcJavaMvn
                     pwd
                     ls
-                    MAVEN_HOME = '/usr/share/java'
+                    MAVEN_HOME = '/usr/bin/mvn'
                     PATH = "${MAVEN_HOME}/bin:${env.PATH}"
                    
                     mvn clean install
