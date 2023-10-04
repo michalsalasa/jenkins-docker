@@ -13,7 +13,7 @@ pipeline {
         PATH = "${env.M2_HOME}/bin:${env.PATH}"
     }
     tools {
-        maven 'Maven 3.9.2'
+        maven 'Maven 3.6.3'
         // jdk 'Java 13.0.12'
     }
 
