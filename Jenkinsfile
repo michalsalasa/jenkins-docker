@@ -1,11 +1,12 @@
 @Library("LibJenkins") _
 // library 'LibJenkins'
 pipeline {
-    agent { 
-        node {
-            label 'docker-agent-python'
-            }
-      }
+    agent any
+    // agent { 
+    //     node {
+    //         label 'docker-agent-python'
+    //         }
+    //   }
 
     environment {
         M2_HOME = '/usr/share/java/maven-3'
