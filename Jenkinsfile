@@ -56,7 +56,7 @@ pipeline {
                     
                     PATH = "${MAVEN_HOME}/bin:${env.PATH}"
                    
-                    /home/jenkins/apache-maven-3.6.3/bin/mvn clean install
+                    ls /home/jenkins/apache-maven-3.6.3/bin
                     '''
             } // /usr/share/java/maven-3/bin/mvn clean install...'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
         }
