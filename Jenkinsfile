@@ -52,7 +52,7 @@ pipeline {
                     cd CalcJavaMvn
                     pwd
                     ls
-                    MAVEN_HOME = '/usr/bin/mvn'
+                    MAVEN_HOME = '/home/jenkins/apache-maven-3.6.3'
                     PATH = "${MAVEN_HOME}/bin:${env.PATH}"
                    
                     mvn clean install
