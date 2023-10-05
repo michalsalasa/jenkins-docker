@@ -60,6 +60,12 @@ pipeline {
                     '''
             } // /usr/share/java/maven-3/bin/mvn clean install. PATH = "${MAVEN_HOME}/bin:${env.PATH}"..'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
         }
+        stage('RunUnitTests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
         stage('Deliver') {
             steps {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
