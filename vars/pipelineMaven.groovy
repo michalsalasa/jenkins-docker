@@ -5,9 +5,9 @@ def call(Map settings = [:]) {
         def skipTests = settings.get('skipTests', false)
         def skipInstall = settings.get('skipInstall', false)
 
-            stage('Download Source Code') {
-                    // checkout ([$class: "GitSCM", branches: [[name: 'main']], userRemoteConfigs:[[url: "https://github.com/michalsalasa/spring-petclinic.git"]]])
-                    checkout scm
+            // stage('Download Source Code') {
+            //         // checkout ([$class: "GitSCM", branches: [[name: 'main']], userRemoteConfigs:[[url: "https://github.com/michalsalasa/spring-petclinic.git"]]])
+            //         checkout scm
             }
             stage('Build') {
                 timestamps {
@@ -18,17 +18,8 @@ def call(Map settings = [:]) {
             stage('Test') {
                 if (!skipTests)
                 script {
-                    // try {
-                    //     if (!settings.skipTests){
-                    // Uruchomienie testów aplikacji
-                    sh  'mvn verify'
-                    // Importowanie wyników testów
-                    junit '**/target/surefire-reports/*.xml'
                     echo "test przeszedl"
                     }
-                //     catch (Exception e) {
-                //     archiveArtifacts allowEmptyArchieve: true, artifacts: '**/target/surefire-reports/*.xml'
-                // }
                 }
             
             stage('Install') {
