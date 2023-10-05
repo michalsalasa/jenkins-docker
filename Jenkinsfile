@@ -64,6 +64,10 @@ pipeline {
             agent any
             steps {
                 script {
+                    sh '''
+                    pwd
+                    cd CalcJavaMvn
+                    '''
                     echo "wykonanie biblioteki pipelineMaven"
                 }
                 pipelineMaven(['skipTests' : true, 'skipInstall': false])
