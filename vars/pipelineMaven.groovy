@@ -29,5 +29,4 @@ def call(Map settings = [:]) {
                     sh 'mvn install -DskipTests'
         }
     }
-    }
 }
