@@ -15,18 +15,18 @@ def call(Map settings = [:]) {
                     sh 'mvn package -DskipTests'
                 }
             }
-            stage('Test') {
-                if (!skipTests)
-                script {
-                    echo "test przeszedl"
-                    }
-                }
+        //     stage('Test') {
+        //         if (!skipTests)
+        //         script {
+        //             echo "test przeszedl"
+        //             }
+        //         }
             
-            stage('Install') {
-                if (!skipInstall)
+        //     stage('Install') {
+        //         if (!skipInstall)
  
-                    // Instalowanie artefaktu w lokalnym repozytorium .m2
-                    sh 'mvn install -DskipTests'
-        }
+        //             // Instalowanie artefaktu w lokalnym repozytorium .m2
+        //             sh 'mvn install -DskipTests'
+        // }
     }
 }
