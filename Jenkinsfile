@@ -63,7 +63,8 @@ pipeline {
         stage('RunUnitTests') {
             steps {
                 sh '''
-                cd CalcJavaMvn
+                ls
+                pwd
                 mvn test
                 '''
                 junit allowEmptyResults: true,
