@@ -67,6 +67,8 @@ pipeline {
                     sh '''
                     pwd
                     cd CalcJavaMvn
+                    pwd
+                    ls
                     '''
                     echo "wykonanie biblioteki pipelineMaven"
                 }
