@@ -62,7 +62,10 @@ pipeline {
         }
         stage('RunUnitTests') {
             steps {
-                sh 'mvn test'
+                sh '''
+                cd CalcJavaMvn
+                mvn test
+                '''
             }
         }
 
