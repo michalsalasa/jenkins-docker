@@ -62,7 +62,8 @@ pipeline {
                 mvn test
                 '''
                 junit allowEmptyResults: true,
-                testResults: '**/target/surefire-reports/*.xml'
+                testResults: '**/target/surefire-reports/*.xml',
+                skipPublishingChecks: true
             }
         }
 
