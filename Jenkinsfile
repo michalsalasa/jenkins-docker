@@ -66,7 +66,8 @@ pipeline {
                 cd CalcJavaMvn
                 mvn test
                 '''
-                junit '**/target/surefire-reports/*.xml'
+                junit allowEmptyResults: true,
+                testResults: '**/target/surefire-reports/*.xml'
             }
         }
 
