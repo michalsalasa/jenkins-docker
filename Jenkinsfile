@@ -37,11 +37,6 @@ pipeline {
             steps {
                 installPythonApp()
                 echo "Testing.."
-                // sh '''
-                // cd myapp
-                // python3 hello.py
-                // python3 hello.py --name=Michal
-                // '''
             }
         }
         stage('MVN') {
@@ -54,40 +49,29 @@ pipeline {
                     '''
             } // /usr/share/java/maven-3/bin/mvn clean install. PATH = "${MAVEN_HOME}/bin:${env.PATH}"..'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
         }
-        // stage('RunUnitTests') {
+
+        // stage('BuildMVN') {
         //     steps {
-        //         sh '''
-        //         ls
-        //         pwd
-        //         mvn test
-        //         '''
+        //         // Zbudowanie kodu
+        //         sh 'mvn package -DskipTests'
+        //     }
+        // }
+        // stage('TestMVN') {
+        //     steps {
+        //         // Uruchomienie testów aplikacji
+        //         sh  'mvn verify'
+        //         // Importowanie wyników testów które sie nie robią
         //         junit allowEmptyResults: true,
         //         testResults: '**/target/surefire-reports/*.xml',
         //         skipPublishingChecks: true
         //     }
         // }
-        stage('BuildMVN') {
-            steps {
-                // Zbudowanie kodu
-                sh 'mvn package -DskipTests'
-            }
-        }
-        stage('TestMVN') {
-            steps {
-                // Uruchomienie testów aplikacji
-                sh  'mvn verify'
-                // Importowanie wyników testów
-                junit allowEmptyResults: true,
-                testResults: '**/target/surefire-reports/*.xml',
-                skipPublishingChecks: true
-            }
-        }
-        stage('InstallMVN') {
-            steps {
-                // Instalowanie artefaktu w lokalnym repozytorium .m2
-                sh 'mvn install -DskipTests'
-            }
-        }
+        // stage('InstallMVN') {
+        //     steps {
+        //         // Install artefakt w lokalnym repo .m2
+        //         sh 'mvn install -DskipTests'
+        //     }
+        // }
 
 
 
@@ -97,6 +81,7 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
+                pipelineMaven(['skipTests' : false, 'skipInstall': false])
             }
         }
     }
