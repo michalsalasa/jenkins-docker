@@ -1,7 +1,5 @@
 @Library("LibJenkins") _
 // library 'LibJenkins'
-def skipTests = settings.get('skipTests', true)
-def skipInstall = settings.get('skipInstall', true)
 pipeline {
     agent any
     // agent { 
@@ -92,9 +90,8 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
-            //     script{ 
-            //     pipelineMaven(skipTests:"false", skipInstall:"false")
-            // }
+                pipelineMaven(skipTests:"false", skipInstall:"false")
+
             }
         }
     }

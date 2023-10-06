@@ -16,7 +16,7 @@ def call(Map settings = [:]) {
         }
         stage('TestMVN') {
             if (!skipTests)
-            steps {
+            scrip {
                 // Uruchomienie testów aplikacji
                 sh  'mvn verify'
                 // Importowanie wyników testów które sie nie robią
@@ -27,10 +27,10 @@ def call(Map settings = [:]) {
         }
         stage('InstallMVN') {
             if (!skipInstall)
-            steps {
+
                 // Install artefakt w lokalnym repo .m2
                 sh 'mvn install -DskipTests'
-            }
+            
         }
     
 
