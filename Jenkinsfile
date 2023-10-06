@@ -64,7 +64,7 @@ pipeline {
             }
         }
         stage('TestMVN') {
-            if (!skipTests)
+            // if (!skipTests)
             script {
                 // Uruchomienie testów aplikacji
                 sh  'mvn verify'
@@ -75,7 +75,7 @@ pipeline {
             }
         }
         stage('InstallMVN') {
-            if (!skipInstall)
+            // if (!skipInstall)
             script {
                 // Install artefakt w lokalnym repo .m2
                 sh 'mvn install -DskipTests'
