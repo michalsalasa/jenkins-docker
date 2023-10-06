@@ -81,7 +81,7 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
-                pipelineMaven(skipTests:false, skipInstall:false)
+                pipelineMaven(skipTests:"false", skipInstall:"false")
             }
         }
     }
