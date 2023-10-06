@@ -12,7 +12,11 @@ def call(Map settings = [:]) {
         stage('BuildMVN') {
             timestamps {
                 // Zbudowanie kodu
-                sh 'mvn package -DskipTests'
+                sh '''
+                pwd
+                ls
+                mvn package -DskipTests
+                '''
             }
         }
         stage('TestMVN') {
