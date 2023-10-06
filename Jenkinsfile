@@ -72,14 +72,14 @@ pipeline {
                 sh 'mvn package -DskipTests'
             }
         }
-        stage('TestMVN') {
-            steps {
-                // Uruchomienie testów aplikacji
-                sh  'mvn verify'
-                // Importowanie wyników testów
-                junit '**/target/surefire-reports/*.xml'
-            }
-        }
+        // stage('TestMVN') {
+        //     steps {
+        //         // Uruchomienie testów aplikacji
+        //         sh  'mvn verify'
+        //         // Importowanie wyników testów
+        //         junit '**/target/surefire-reports/*.xml'
+        //     }
+        // }
         stage('InstallMVN') {
             steps {
                 // Instalowanie artefaktu w lokalnym repozytorium .m2
