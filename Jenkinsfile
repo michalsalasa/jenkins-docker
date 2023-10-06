@@ -76,5 +76,13 @@ pipeline {
                 '''
             }
         }
+        stage('Testanother') {
+            steps {
+                // Uruchomienie testów aplikacji
+                sh  'mvn verify'
+                // Importowanie wyników testów
+                junit '**/target/surefire-reports/*.xml'
+            }
+            }
     }
 }
