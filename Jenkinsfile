@@ -87,6 +87,9 @@ pipeline {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''
                 echo "doing delivery stuff.."
+                pwd
+                ls
+            
                 '''
                 pipelineMaven(skipTests:"false", skipInstall:"false")
 
