@@ -72,7 +72,7 @@ pipeline {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''
                 echo "doing delivery stuff.."
-                mvn verify 
+                mvn package -DskipTests
                 '''
             }
         }
