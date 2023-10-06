@@ -14,7 +14,13 @@ pipeline {
     environment {
         M2_HOME = '/usr/share/java/maven-3'
         PATH = "${env.M2_HOME}/bin:${env.PATH}"
+        // skipTests = params.skipTests ?: false
+        // skipInstall = params.skipInstall ?: false
     }
+    // parameters {
+    //     booleanParam(name: 'skipTests', defaultValue: false, description: 'Skip tests')
+    //     booleanParam(name: 'skipInstall', defaultValue: false, description: 'Skip install')
+    // }
     tools {
         maven 'Maven 3.6.3'
         // jdk 'Java 13.0.12'
@@ -61,7 +67,7 @@ pipeline {
         }
         stage('TestMVN') {
             if (!skipTests)
-            steps {
+            script {
                 // Uruchomienie testów aplikacji
                 sh  'mvn verify'
                 // Importowanie wyników testów które sie nie robią
@@ -72,7 +78,7 @@ pipeline {
         }
         stage('InstallMVN') {
             if (!skipInstall)
-            steps {
+            script {
                 // Install artefakt w lokalnym repo .m2
                 sh 'mvn install -DskipTests'
             }
