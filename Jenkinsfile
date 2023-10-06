@@ -65,7 +65,7 @@ pipeline {
         }
         stage('TestMVN') {
             // if (!skipTests)
-            script {
+            steps {
                 // Uruchomienie testów aplikacji
                 sh  'mvn verify'
                 // Importowanie wyników testów które sie nie robią
@@ -76,7 +76,7 @@ pipeline {
         }
         stage('InstallMVN') {
             // if (!skipInstall)
-            script {
+            steps {
                 // Install artefakt w lokalnym repo .m2
                 sh 'mvn install -DskipTests'
             }
