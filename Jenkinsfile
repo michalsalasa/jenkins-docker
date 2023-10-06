@@ -7,7 +7,9 @@ pipeline {
     //         label 'docker-agent-python'
     //         }
     //   }
-
+        def skipTests = settings.get('skipTests', false)
+        def skipInstall = settings.get('skipInstall', false)
+        
     environment {
         M2_HOME = '/usr/share/java/maven-3'
         PATH = "${env.M2_HOME}/bin:${env.PATH}"
@@ -50,28 +52,30 @@ pipeline {
             } // /usr/share/java/maven-3/bin/mvn clean install. PATH = "${MAVEN_HOME}/bin:${env.PATH}"..'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
         }
 
-        // stage('BuildMVN') {
-        //     steps {
-        //         // Zbudowanie kodu
-        //         sh 'mvn package -DskipTests'
-        //     }
-        // }
-        // stage('TestMVN') {
-        //     steps {
-        //         // Uruchomienie testów aplikacji
-        //         sh  'mvn verify'
-        //         // Importowanie wyników testów które sie nie robią
-        //         junit allowEmptyResults: true,
-        //         testResults: '**/target/surefire-reports/*.xml',
-        //         skipPublishingChecks: true
-        //     }
-        // }
-        // stage('InstallMVN') {
-        //     steps {
-        //         // Install artefakt w lokalnym repo .m2
-        //         sh 'mvn install -DskipTests'
-        //     }
-        // }
+        stage('BuildMVN') {
+            steps {
+                // Zbudowanie kodu
+                sh 'mvn package -DskipTests'
+            }
+        }
+        stage('TestMVN') {
+            if (!skipTests)
+            steps {
+                // Uruchomienie testów aplikacji
+                sh  'mvn verify'
+                // Importowanie wyników testów które sie nie robią
+                junit allowEmptyResults: true,
+                testResults: '**/target/surefire-reports/*.xml',
+                skipPublishingChecks: true
+            }
+        }
+        stage('InstallMVN') {
+            if (!skipInstall)
+            steps {
+                // Install artefakt w lokalnym repo .m2
+                sh 'mvn install -DskipTests'
+            }
+        }
 
 
 
@@ -81,9 +85,9 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
-                script{ 
-                pipelineMaven(skipTests:"false", skipInstall:"false")
-            }
+            //     script{ 
+            //     pipelineMaven(skipTests:"false", skipInstall:"false")
+            // }
             }
         }
     }
