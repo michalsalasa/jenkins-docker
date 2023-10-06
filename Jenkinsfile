@@ -83,6 +83,10 @@ pipeline {
 
 
         stage('Deliver') {
+            environment {
+                M2_HOME = '/usr/share/java/maven-3'
+                PATH = "${env.M2_HOME}/bin:${env.PATH}"
+            }
             steps {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''
