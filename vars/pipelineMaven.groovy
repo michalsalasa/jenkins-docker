@@ -8,6 +8,7 @@ def call(Map settings = [:]) {
         stage('Download Source Code') {
                 // checkout ([$class: "GitSCM", branches: [[name: 'main']], userRemoteConfigs:[[url: "https://github.com/michalsalasa/spring-petclinic.git"]]])
                 checkout scm
+        }
 
         stage('BuildMVN') {
             steps {
