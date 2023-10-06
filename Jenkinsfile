@@ -1,5 +1,7 @@
 @Library("LibJenkins") _
 // library 'LibJenkins'
+def skipTests = settings.get('skipTests', false)
+def skipInstall = settings.get('skipInstall', false)
 pipeline {
     agent any
     // agent { 
@@ -7,8 +9,7 @@ pipeline {
     //         label 'docker-agent-python'
     //         }
     //   }
-        def skipTests = settings.get('skipTests', false)
-        def skipInstall = settings.get('skipInstall', false)
+
         
     environment {
         M2_HOME = '/usr/share/java/maven-3'
