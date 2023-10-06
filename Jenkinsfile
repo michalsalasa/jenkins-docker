@@ -54,18 +54,40 @@ pipeline {
                     '''
             } // /usr/share/java/maven-3/bin/mvn clean install. PATH = "${MAVEN_HOME}/bin:${env.PATH}"..'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
         }
-        stage('RunUnitTests') {
+        // stage('RunUnitTests') {
+        //     steps {
+        //         sh '''
+        //         ls
+        //         pwd
+        //         mvn test
+        //         '''
+        //         junit allowEmptyResults: true,
+        //         testResults: '**/target/surefire-reports/*.xml',
+        //         skipPublishingChecks: true
+        //     }
+        // }
+        stage('BuildMVN') {
             steps {
-                sh '''
-                ls
-                pwd
-                mvn test
-                '''
-                junit allowEmptyResults: true,
-                testResults: '**/target/surefire-reports/*.xml',
-                skipPublishingChecks: true
+                // Zbudowanie kodu
+                sh 'mvn package -DskipTests'
             }
         }
+        stage('TestMVN') {
+            steps {
+                // Uruchomienie testów aplikacji
+                sh  'mvn verify'
+                // Importowanie wyników testów
+                junit '**/target/surefire-reports/*.xml'
+            }
+        }
+        stage('InstallMVN') {
+            steps {
+                // Instalowanie artefaktu w lokalnym repozytorium .m2
+                sh 'mvn install -DskipTests'
+            }
+        }
+
+
 
         stage('Deliver') {
             steps {
@@ -76,13 +98,5 @@ pipeline {
                 '''
             }
         }
-        stage('Testanother') {
-            steps {
-                // Uruchomienie testów aplikacji
-                sh  'mvn verify'
-                // Importowanie wyników testów
-                junit '**/target/surefire-reports/*.xml'
-            }
-            }
     }
 }
