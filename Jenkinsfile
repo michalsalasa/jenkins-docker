@@ -81,7 +81,9 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
+                script{ 
                 pipelineMaven(skipTests:"false", skipInstall:"false")
+            }
             }
         }
     }
