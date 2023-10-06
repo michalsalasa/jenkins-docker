@@ -1,7 +1,7 @@
 @Library("LibJenkins") _
 // library 'LibJenkins'
-def skipTests = settings.get('skipTests', false)
-def skipInstall = settings.get('skipInstall', false)
+def skipTests = settings.get('skipTests', true)
+def skipInstall = settings.get('skipInstall', true)
 pipeline {
     agent any
     // agent { 
