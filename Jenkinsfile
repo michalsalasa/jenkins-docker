@@ -89,7 +89,9 @@ pipeline {
                 echo "doing delivery stuff.."
                 pwd
                 ls
-            
+                export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+                ls
+                pwd
                 '''
                 pipelineMaven(skipTests:"false", skipInstall:"false")
 
