@@ -4,10 +4,9 @@ def call(Map settings = [:]) {
         def skipTests = settings.get('skipTests', false)
         def skipInstall = settings.get('skipInstall', false)
 
-        stage('Download Source Code') {
-                // checkout ([$class: "GitSCM", branches: [[name: 'main']], userRemoteConfigs:[[url: "https://github.com/michalsalasa/spring-petclinic.git"]]])
-                checkout scm
-        }
+        // stage('Download Source Code') {
+        //         checkout scm
+        // }
 
         stage('BuildMVN') {
             steps {
