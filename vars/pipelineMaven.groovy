@@ -1,7 +1,6 @@
 def call(Map settings = [:]) {
-    node {
-        ansiColor('xterm')
-        {
+  
+ 
         def skipTests = settings.get('skipTests', false)
         def skipInstall = settings.get('skipInstall', false)
 
@@ -34,6 +33,6 @@ def call(Map settings = [:]) {
                 sh 'mvn install -DskipTests'
             }
         }
-    }
-}
+    
+
 }
