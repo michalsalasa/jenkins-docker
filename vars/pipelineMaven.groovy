@@ -1,6 +1,7 @@
 def call(Map settings = [:]) {
-  
- 
+    node {
+        ansiColor('xterm')
+        {
         def skipTests = settings.get('skipTests', false)
         def skipInstall = settings.get('skipInstall', false)
 
@@ -9,14 +10,14 @@ def call(Map settings = [:]) {
         // }
 
         stage('BuildMVN') {
-            steps {
+            timestamps {
                 // Zbudowanie kodu
                 sh 'mvn package -DskipTests'
             }
         }
         stage('TestMVN') {
             if (!skipTests)
-            scrip {
+            script {
                 // Uruchomienie testów aplikacji
                 sh  'mvn verify'
                 // Importowanie wyników testów które sie nie robią
@@ -32,6 +33,6 @@ def call(Map settings = [:]) {
                 sh 'mvn install -DskipTests'
             
         }
-    
-
+    }
+}
 }
