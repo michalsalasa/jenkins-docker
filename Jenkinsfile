@@ -18,7 +18,7 @@ pipeline {
 
     tools {
         maven 'Maven 3.6.3'
-        jdk 'Java 11.0.20.1'
+        // jdk 'Java 11.0.20.1'
     }
 
     // triggers {
