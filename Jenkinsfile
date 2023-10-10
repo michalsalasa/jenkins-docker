@@ -89,11 +89,11 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
 
-                export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+                
                 mvn install
                 '''
                 // pipelineMaven(skipTests:"false", skipInstall:"false")
-
+// export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
             }
         }
     }
