@@ -89,8 +89,8 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
-                pipelineMaven(skipTests:"false", skipInstall:"false")
-// export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+                
+// export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'...pipelineMaven(skipTests:"false", skipInstall:"false")
             }
         }
     }
