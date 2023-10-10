@@ -20,8 +20,8 @@ def call(Map settings = [:]) {
                 // Zbudowanie kodu... timestamps instead of withMaven
                 
                 sh '''
-
-                mvn install
+                export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+                mvn package -DskipTests
 
                 '''
             }
