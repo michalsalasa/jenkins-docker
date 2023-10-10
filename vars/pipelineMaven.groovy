@@ -16,16 +16,16 @@ def call(Map settings = [:]) {
         // }
 
         stage('BuildMVN') {
-            timestamps {
-                // Zbudowanie kodu
-                MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+            withMaven(maven: 'mvn') {
+                // Zbudowanie kodu... timestamps instead of withMaven()
+                
                 sh '''
-                export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+
                 mvn install
 
                 '''
             }
-        }                // mvn package -DskipTests
+        }                // mvn package -DskipTests.......export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
         stage('TestMVN') {
             if (!skipTests)
             script {
