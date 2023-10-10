@@ -16,8 +16,8 @@ def call(Map settings = [:]) {
         // }
 
         stage('BuildMVN') {
-            withMaven(maven: 'mvn') {
-                // Zbudowanie kodu... timestamps instead of withMaven()
+            timestamps {
+                // Zbudowanie kodu... timestamps instead of withMaven
                 
                 sh '''
 
