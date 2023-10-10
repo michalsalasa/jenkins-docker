@@ -88,11 +88,8 @@ pipeline {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''
                 echo "doing delivery stuff.."
-
-                
-                mvn install
                 '''
-                // pipelineMaven(skipTests:"false", skipInstall:"false")
+                pipelineMaven(skipTests:"false", skipInstall:"false")
 // export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
             }
         }
