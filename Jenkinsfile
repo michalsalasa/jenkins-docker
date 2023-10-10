@@ -15,13 +15,10 @@ pipeline {
     //     // skipTests = params.skipTests ?: false
     //     // skipInstall = params.skipInstall ?: false
     // }
-    // parameters {
-    //     booleanParam(name: 'skipTests', defaultValue: false, description: 'Skip tests')
-    //     booleanParam(name: 'skipInstall', defaultValue: false, description: 'Skip install')
-    // }
+
     tools {
         maven 'Maven 3.6.3'
-        // jdk 'Java 13.0.12'
+        jdk 'Java 11.0.20.1'
     }
 
     // triggers {
