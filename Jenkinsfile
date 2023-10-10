@@ -80,19 +80,19 @@ pipeline {
 
 
         stage('Deliver') {
-            environment {
-                M2_HOME = '/usr/share/java/maven-3'
-                PATH = "${env.M2_HOME}/bin:${env.PATH}"
-            }
+            // environment {
+            //     M2_HOME = '/usr/share/java/maven-3'
+            //     PATH = "${env.M2_HOME}/bin:${env.PATH}"
+            // }
             steps {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''
                 echo "doing delivery stuff.."
 
                 export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
-
+                mvn install
                 '''
-                pipelineMaven(skipTests:"false", skipInstall:"false")
+                // pipelineMaven(skipTests:"false", skipInstall:"false")
 
             }
         }
