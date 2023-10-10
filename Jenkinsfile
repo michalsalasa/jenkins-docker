@@ -9,12 +9,12 @@ pipeline {
     //   }
 
         
-    environment {
-        M2_HOME = '/usr/share/java/maven-3'
-        PATH = "${env.M2_HOME}/bin:${env.PATH}"
-        // skipTests = params.skipTests ?: false
-        // skipInstall = params.skipInstall ?: false
-    }
+    // environment {
+    //     M2_HOME = '/usr/share/java/maven-3'
+    //     PATH = "${env.M2_HOME}/bin:${env.PATH}"
+    //     // skipTests = params.skipTests ?: false
+    //     // skipInstall = params.skipInstall ?: false
+    // }
     // parameters {
     //     booleanParam(name: 'skipTests', defaultValue: false, description: 'Skip tests')
     //     booleanParam(name: 'skipInstall', defaultValue: false, description: 'Skip install')
