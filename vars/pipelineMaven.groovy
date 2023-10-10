@@ -21,11 +21,11 @@ def call(Map settings = [:]) {
                 MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
                 sh '''
                 export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+                mvn install
 
-                mvn package -DskipTests
                 '''
             }
-        }
+        }                // mvn package -DskipTests
         stage('TestMVN') {
             if (!skipTests)
             script {
