@@ -18,6 +18,7 @@ def call(Map settings = [:]) {
         stage('BuildMVN') {
             timestamps {
                 // Zbudowanie kodu
+                MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
                 sh '''
                 export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
 
