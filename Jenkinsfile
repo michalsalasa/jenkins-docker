@@ -9,12 +9,12 @@ pipeline {
     //   }
 
         
-    // environment {
-    //     M2_HOME = '/usr/share/java/maven-3'
-    //     PATH = "${env.M2_HOME}/bin:${env.PATH}"
-    //     // skipTests = params.skipTests ?: false
-    //     // skipInstall = params.skipInstall ?: false
-    // }
+    environment {
+        M2_HOME = '/usr/share/java/maven-3'
+        PATH = "${env.M2_HOME}/bin:${env.PATH}"
+        // skipTests = params.skipTests ?: false
+        // skipInstall = params.skipInstall ?: false
+    }
 
     tools {
         maven 'Maven 3.6.3'
@@ -53,37 +53,8 @@ pipeline {
                     '''
             } // /usr/share/java/maven-3/bin/mvn clean install. PATH = "${MAVEN_HOME}/bin:${env.PATH}"..'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
         }
-
-        // stage('BuildMVN') {
-        //     steps {
-        //         // Zbudowanie kodu
-        //         sh 'mvn package -DskipTests'
-        //     }
-        // }
-        // stage('TestMVN') {
-        //     steps {
-        //         // Uruchomienie testów aplikacji
-        //         sh  'mvn verify'
-        //         // Importowanie wyników testów które sie nie robią
-        //         junit allowEmptyResults: true,
-        //         testResults: '**/target/surefire-reports/*.xml',
-        //         skipPublishingChecks: true
-        //     }
-        // }
-        // stage('InstallMVN') {
-        //     steps {
-        //         // Install artefakt w lokalnym repo .m2
-        //         sh 'mvn install -DskipTests'
-        //     }
-        // }
-
-
-
         stage('Deliver') {
-            // environment {
-            //     M2_HOME = '/usr/share/java/maven-3'
-            //     PATH = "${env.M2_HOME}/bin:${env.PATH}"....// export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
-            // }
+
             steps {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''

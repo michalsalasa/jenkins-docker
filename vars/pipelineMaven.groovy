@@ -6,7 +6,6 @@ def call(Map settings = [:]) {
         def skipInstall = settings.get('skipInstall', false)
     environment {
         M2_HOME = '/usr/share/java/maven-3'
-        MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
         PATH = "${env.M2_HOME}/bin:${env.PATH}"
         // skipTests = params.skipTests ?: false
         // skipInstall = params.skipInstall ?: false
