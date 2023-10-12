@@ -22,6 +22,7 @@ def call(Map settings = [:]) {
                 // Zbudowanie kodu... timestamps instead of withMaven
                 
                 sh '''
+                cd /home/jenkins/jenkins_slave/workspace/JenPipeline
                 pwd
                 ls                
                 export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
