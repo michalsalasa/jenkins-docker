@@ -1,4 +1,7 @@
 def call(Map settings = [:]) {
+    agent {
+        ubuntu-slave1
+    }
     node {
         ansiColor('xterm')
         {
@@ -13,9 +16,7 @@ def call(Map settings = [:]) {
         // stage('Download Source Code') {
         //         checkout scm
         // }
-        agent {
-            ubuntu-slave1
-        }
+       
         stage('BuildMVN') {
             timestamps {
                 // Zbudowanie kodu... timestamps instead of withMaven
