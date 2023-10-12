@@ -4,12 +4,12 @@ def call(Map settings = [:]) {
         {
         def skipTests = settings.get('skipTests', false)
         def skipInstall = settings.get('skipInstall', false)
-    environment {
-        M2_HOME = '/usr/share/java/maven-3'
-        PATH = "${env.M2_HOME}/bin:${env.PATH}"
-        // skipTests = params.skipTests ?: false
-        // skipInstall = params.skipInstall ?: false
-    }
+    // environment {
+    //     M2_HOME = '/usr/share/java/maven-3'
+    //     PATH = "${env.M2_HOME}/bin:${env.PATH}"
+    //     // skipTests = params.skipTests ?: false
+    //     // skipInstall = params.skipInstall ?: false
+    // }
         // stage('Download Source Code') {
         //         checkout scm
         // }
