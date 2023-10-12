@@ -13,7 +13,9 @@ def call(Map settings = [:]) {
         // stage('Download Source Code') {
         //         checkout scm
         // }
-        agent ubuntu-slave1
+        agent {
+            ubuntu-slave1
+        }
         stage('BuildMVN') {
             timestamps {
                 // Zbudowanie kodu... timestamps instead of withMaven
