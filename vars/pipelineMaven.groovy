@@ -2,8 +2,8 @@ def call(Map settings = [:]) {
     node('ubuntu-slave1') {
         ansiColor('xterm')
         {
-        // def skipTests = settings.get('skipTests', false)
-        // def skipInstall = settings.get('skipInstall', false)
+        def skipTests = settings.get('skipTests', false)
+        def skipInstall = settings.get('skipInstall', false)
     // environment {
     //     M2_HOME = '/usr/share/java/maven-3'
     //     PATH = "${env.M2_HOME}/bin:${env.PATH}"
