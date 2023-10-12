@@ -62,7 +62,7 @@ pipeline {
                 echo "doing delivery stuff.."
                 export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
                 '''
-                pipelineMaven(['skipTests' : true, 'skipInstall': false])
+                pipelineMaven(['skipTests' : true, 'skipInstall': true])
 
             }
         }
