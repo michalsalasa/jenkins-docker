@@ -48,10 +48,11 @@ pipeline {
                     sh '''
                  
                     export MAVEN_HOME='/opt/apache-maven-3.6.3/bin' 
-                    mvn package -DskipTests
-                    
+                    mvn install
+                    pwd
+                    ls
                     '''
-            } // mvn install         /usr/share/java/maven-3/bin/mvn clean install. PATH = "${MAVEN_HOME}/bin:${env.PATH}"..'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
+            } // /usr/share/java/maven-3/bin/mvn clean install. PATH = "${MAVEN_HOME}/bin:${env.PATH}"..'/home/jenkins/apache-maven-3.6.3/bin'... MAVEN_HOME = '/usr/share/java/maven-3'
         }
         stage('Deliver') {
 
