@@ -1,8 +1,8 @@
 def call(Map settings = [:]) {
-    agent {
-        ubuntu-slave1
-    }
-    node {
+    // agent {
+    //     ubuntu-slave1
+    // }
+    node('ubuntu-slave1') {
         ansiColor('xterm')
         {
         def skipTests = settings.get('skipTests', false)
