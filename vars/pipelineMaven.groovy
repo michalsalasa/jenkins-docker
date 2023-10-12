@@ -35,7 +35,9 @@ def call(Map settings = [:]) {
             if (!skipTests)
             script {
                 // Uruchomienie testów aplikacji
-                sh  'mvn verify'
+                sh  '''
+                cd /home/jenkins/jenkins_slave/workspace/JenPipeline
+                mvn verify '''
                 // Importowanie wyników testów które sie nie robią
                 junit allowEmptyResults: true,
                 testResults: '**/target/surefire-reports/*.xml',
@@ -46,7 +48,9 @@ def call(Map settings = [:]) {
             if (!skipInstall)
 
                 // Install artefakt w lokalnym repo .m2
-                sh 'mvn install -DskipTests'
+                sh '''
+                cd /home/jenkins/jenkins_slave/workspace/JenPipeline
+                mvn install -DskipTests '''
             
         }
     }
