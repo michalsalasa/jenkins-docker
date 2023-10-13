@@ -37,7 +37,7 @@ pipeline {
                     sh '''
                     pwd
                     ls
-                     
+                    export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
                     mvn install
                     '''
             } 
