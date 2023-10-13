@@ -37,18 +37,16 @@ pipeline {
                     sh '''
                     pwd
                     ls
-                    export MAVEN_HOME='/opt/apache-maven-3.6.3/bin' 
+                     
                     mvn install
-                   
                     '''
             } 
-        }
+        } //export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
         stage('Deliver') {
 
             steps {
                 externalLib(name:"Jenkins", dayOfWeek:"basic")
                 sh '''
-                echo "doing delivery stuff.."
                 export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
                 '''
                 pipelineMaven(['skipTests' : false, 'skipInstall': false])
