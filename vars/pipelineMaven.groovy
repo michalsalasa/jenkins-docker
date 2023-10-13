@@ -33,7 +33,7 @@ def call(Map settings = [:]) {
         stage('InstallMVN') {
             if (!skipInstall)
 
-                // Install artefakt w lokalnym repo .m2
+                // Install artefakt w lokalnym repo ~/.m2/repository
                 sh '''
                 cd /home/jenkins/jenkins_slave/workspace/JenPipeline
                 mvn install -DskipTests '''           

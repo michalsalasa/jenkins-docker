@@ -8,10 +8,10 @@ pipeline {
         PATH = "${env.M2_HOME}/bin:${env.PATH}"
     }
 
-    tools {
-        maven 'Maven 3.6.3'
-        // jdk 'Java 11.0.20.1'
-    }
+    // tools {
+    //     maven 'Maven 3.6.3'
+    //     // jdk 'Java 11.0.20.1'
+    // }
 
     stages {
         stage('Build') {
