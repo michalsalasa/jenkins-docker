@@ -54,5 +54,10 @@ pipeline {
                 pipelineMaven(['skipTests' : false, 'skipInstall': false])
             }
         }
+        post {
+            always {
+                cleanWs()
+            }
+        }
     }
 }
