@@ -41,7 +41,7 @@ pipeline {
                     mvn install
                     '''
             } 
-        } //export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
+        } //export MAVEN_HOME='/opt/apache-maven-3.6.3/bin' (przed mvn install ewentualnie)
         stage('Deliver') {
 
             steps {
@@ -53,9 +53,9 @@ pipeline {
             }
         }
     }
-    // post {
-    //     always {
-    //         cleanWs()
-    //     }
-    // }
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }
