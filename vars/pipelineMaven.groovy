@@ -7,7 +7,6 @@ def call(Map settings = [:]) {
        
         stage('BuildMVN') {
             timestamps {
-                // Zbudowanie kodu...
                 sh '''
                 cd /home/jenkins/jenkins_slave/workspace/JenPipeline
                 pwd
@@ -20,7 +19,6 @@ def call(Map settings = [:]) {
         stage('TestMVN') {
             if (!skipTests)
             script {
-                // testy
                 sh  '''
                 cd /home/jenkins/jenkins_slave/workspace/JenPipeline
                 mvn verify '''
@@ -32,7 +30,6 @@ def call(Map settings = [:]) {
         }
         stage('InstallMVN') {
             if (!skipInstall)
-
                 // Install artefakt w lokalnym repo ~/.m2/repository
                 sh '''
                 cd /home/jenkins/jenkins_slave/workspace/JenPipeline
