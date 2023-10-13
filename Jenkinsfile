@@ -3,10 +3,10 @@
 pipeline {
     agent any
 
-    environment {
-        M2_HOME = '/usr/share/java/maven-3'
-        PATH = "${env.M2_HOME}/bin:${env.PATH}"
-    }
+    // environment {
+    //     M2_HOME = '/usr/share/java/maven-3'
+    //     PATH = "${env.M2_HOME}/bin:${env.PATH}"
+    // }
 
     // tools {
     //     maven 'Maven 3.6.3'
@@ -41,7 +41,7 @@ pipeline {
                     mvn install
                     '''
             } 
-        } //export MAVEN_HOME='/opt/apache-maven-3.6.3/bin' (przed mvn install ewentualnie)
+        }
         stage('Deliver') {
 
             steps {
