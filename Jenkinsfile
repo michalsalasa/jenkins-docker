@@ -1,7 +1,7 @@
 @Library("LibJenkins") _
 // library 'LibJenkins'
 pipeline {
-    agent any
+    agent { label 'ubuntu-slave1' }
 
     // environment {
     //     M2_HOME = '/usr/share/java/maven-3'
