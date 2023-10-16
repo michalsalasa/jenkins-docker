@@ -52,10 +52,17 @@ pipeline {
                 pipelineMaven(['skipTests' : false, 'skipInstall': false])
             }
         }
-    }
-    post {
-        always {
-            cleanWs()
+        stage('Sonarqube analisys'){
+        steps{
+        withSonarQubeEnv('sonarqube-7.6'){
+        sh "mvn sonar:sonar"
+        }
+        }
         }
     }
+    // post {
+    //     always {
+    //         cleanWs()
+    //     }
+    // }
 }
