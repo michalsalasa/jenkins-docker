@@ -12,8 +12,9 @@ def call(Map settings = [:]) {
                 pwd
                 ls                
                 export MAVEN_HOME='/opt/apache-maven-3.6.3/bin'
-                mvn package -DskipTests
+                mvn package 
                 '''
+                // -DskipTests
             }
         }
         stage('TestMVN') {
