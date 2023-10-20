@@ -52,13 +52,13 @@ pipeline {
                 pipelineMaven(['skipTests' : false, 'skipInstall': false])
             }
         }
-        stage('Sonarqube analisys'){
-        steps{
-        withSonarQubeEnv('sonarqube-7.6'){
-        sh "mvn sonar:sonar"
-        }
-        }
-        }
+        // stage('Sonarqube analisys'){
+        // steps{
+        // withSonarQubeEnv('sonarqube-7.6'){
+        // sh "mvn sonar:sonar"
+        // }
+        // }
+        // }
     }
     // post {
     //     always {
